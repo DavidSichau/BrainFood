@@ -1,0 +1,18 @@
+
+<template name="questions">
+    <div class="list-group">
+        {{#each questions}}
+        <button type="button" class="list-group-item">{{question}}</button>
+        {{/each}}
+
+        <br>
+        <br>
+
+        {{#if activeQuestion}}
+            {{#with activeQuestion}}
+                {{> questionAnswer}}
+            {{/with}}
+
+        {{/if}}
+    </div>
+</template>

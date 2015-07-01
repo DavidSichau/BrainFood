@@ -1,0 +1,7 @@
+autopublish
+insecure
+meteor-platform
+twbs:bootstrap
+reactive-var
+accounts-password
+ian:accounts-ui-bootstrap-3
