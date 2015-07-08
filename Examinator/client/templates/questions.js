@@ -36,13 +36,13 @@ Template.singleQuestion.helpers({
      * @returns {boolean}
      */
     correctAnswer: function() {
-        return !!Answers.findOne({questionId: this._id, correct: true});
+        return !!Answers.findOne({questionId: this._id, userId: Meteor.userId(), correct: true});
     },
     /**
      * Returns the number of wrong answers
      * @returns {number}
      */
     wrongAnswerCount: function() {
-        return Answers.find({questionId: this._id, correct: false}).count();
+        return Answers.find({questionId: this._id, userId: Meteor.userId(), correct: false}).count();
     }
 });
