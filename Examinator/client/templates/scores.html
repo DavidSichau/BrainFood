@@ -1,0 +1,12 @@
+<template name="scores">
+    {{#if Template.subscriptionsReady}}
+        <div class="list-group">
+            {{#each usersAndScores}}
+                <button type="button" class="list-group-item">
+                    {{userName}}
+                    <span class="badge">{{score}}</span>
+                </button>
+            {{/each}}
+        </div>
+    {{/if}}
+</template>

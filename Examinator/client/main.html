@@ -1,45 +1,68 @@
 <head>
-  <title>Examinator</title>
-  <meta name="viewport" content="width=device-width, user-scalable=no">
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
+    <title>Examinator</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
 </head>
 
 <body>
-
+{{> sAlert}}
 <div class="navbar navbar-default" role="navigation">
-  <div class="navbar-header">
-    <a class="navbar-brand" href="#">Examinator</a>
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-  </div>
-  <div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav navbar-right">
-      {{> loginButtons}} <!-- here -->
-    </ul>
-  </div>
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Examinator</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+            {{> loginButtons}}
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-4 col-md-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h1 class="title">Examinator</h1>
+                {{#if currentUser}}
+                    <div class="subtitle">Eine Frage auswählen um anzufangen</div>
+                {{else}}
+                    <div class="subtitle">Bitte Anmelden um Fragen zu lösen</div>
+                {{/if}}
+            </div>
+            {{#if currentUser}}
+                {{> questions}}
+            {{/if}}
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h1 class="title">Examinator Scores</h1>
+                <div class="subtitle">Rangliste</div>
+            </div>
+            {{> scores}}
+        </div>
+    </div>
 </div>
 
 
-  <div class="col-md-4 col-md-offset-4">
-    <div class="logo"></div>
-    <h1 class="title">Examinator</h1>
+<div class="row">
     {{#if currentUser}}
-      <div class="subtitle">Eine Frage auswählen um anzufangen</div>
-      {{> questions}}
-    {{else}}
-      <div class="subtitle">Bitte Anmelden um Fragen zu lösen</div>
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h1 class="title">Neue Frage erstellen</h1>
+
+                    {{> insertQuestion}}
+                </div>
+            </div>
+        </div>
 
     {{/if}}
-  </div>
+</div>
 </body>
-
-<template name="player">
-  <li class="player {{selected}}">
-    <span class="name">{{name}}</span>
-    <span class="score">{{score}}</span>
-  </li>
-</template>

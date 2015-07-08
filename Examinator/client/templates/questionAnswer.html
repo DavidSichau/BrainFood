@@ -1,20 +1,21 @@
 <template name="questionAnswer">
 
     <div class="panel panel-default">
-        <div class="panel-heading">{{question}}</div>
+        <div class="panel-heading">{{question}} </div>
         <div class="panel-body">
             <form>
-            {{#each answers}}
+                {{#each answers}}
 
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="{{answer}}">
-                    {{answer}}
-                </label>
-            </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="{{answer}}">
+                            {{answer}}
+                        </label>
+                    </div>
 
-            {{/each}}
+                {{/each}}
                 <button type="submit" class="btn btn-default">Abschicken</button>
+                <button type="reset" class="btn btn-default btn-cancel pull-right">Cancel</button>
             </form>
         </div>
     </div>

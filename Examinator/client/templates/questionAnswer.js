@@ -1,34 +1,37 @@
 
-Template.questionAnswer.helpers({
-
-});
-
-
 Template.questionAnswer.events({
+    /**
+     * Submits the form
+     * @param e The event handler
+     */
     'submit': function(e) {
         e.preventDefault();
         var formData = $(e.target).serializeArray();
-        var correct = _.reduce(this.answers, function(memo, a){
-            var answer = _.find(formData, function(ans) {
-                return a.answer == ans.name;
-            });
-            if(a.correct && answer) {
-                return memo && true;
-            } else if (a.correct && _.isUndefined(answer)){
-                return memo && false;
-            } else if(!a.correct && answer) {
-                return memo && false;
-            } else {
-                return true;
+        /*
+         * calls the meteor function which is executed on the server and on the client
+         */
+        Meteor.call('checkAnswer', this._id, formData, function(err, correct) {
+            if(err) {
+                console.log(err);
             }
-        }, true);
-        Answers.insert({
-            questionId: this._id,
-            userId: Meteor.userId(),
-            correct: correct
+            if(correct) {
+                sAlert.success('richtig');
+            } else {
+                sAlert.error('falsch');
+            }
+            Session.set('activeQuestion', null);
+
         });
+    },
+    /**
+     * clears the active Question
+     * @param e
+     */
+    'click .btn-cancel': function(e) {
+        e.preventDefault();
         Session.set('activeQuestion', null);
     }
+
 
 
 });

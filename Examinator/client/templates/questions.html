@@ -1,18 +1,25 @@
 
 <template name="questions">
-    <div class="list-group">
-        {{#each questions}}
-        <button type="button" class="list-group-item">{{question}}</button>
-        {{/each}}
+    {{#if Template.subscriptionsReady}}
+        <div class="list-group">
+            {{#each questions}}
+                {{>singleQuestion}}
+            {{/each}}
 
-        <br>
-        <br>
 
-        {{#if activeQuestion}}
-            {{#with activeQuestion}}
-                {{> questionAnswer}}
-            {{/with}}
+            {{#if activeQuestion}}
+                <hr>
+                {{#with activeQuestion}}
+                    {{> questionAnswer}}
+                {{/with}}
 
-        {{/if}}
-    </div>
+            {{/if}}
+        </div>
+    {{/if}}
+</template>
+
+<template name="singleQuestion">
+    <button type="button" class="list-group-item{{#if correctAnswer}} list-group-item-success {{/if}}" disabled={{correctAnswer}}>{{question}}
+        <span class="badge">{{wrongAnswerCount}}</span>
+    </button>
 </template>
