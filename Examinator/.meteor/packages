@@ -1,6 +1,5 @@
 meteor-platform
 twbs:bootstrap
-reactive-var
 accounts-password
 ian:accounts-ui-bootstrap-3
 juliancwirko:s-alert
