@@ -2,6 +2,9 @@
  * Created by dsichau on 01.07.15.
  */
 
+/**
+ * Meteor.startup runs when the meteor application successfully started
+ */
 Meteor.startup(function () {
 
     /**

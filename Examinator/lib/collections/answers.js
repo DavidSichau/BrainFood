@@ -10,6 +10,7 @@ Meteor.methods({
 
     /**
      * This methods controls if the answers were correct
+     * This methods runs on the server and on the client
      * @param questionId The Id of the question
      * @param formData The form data
      */

@@ -1,5 +1,6 @@
 
 <template name="questions">
+    <!--This is a helper to wait that the subscriptions are loaded from the server-->
     {{#if Template.subscriptionsReady}}
         <div class="list-group">
             {{#each questions}}

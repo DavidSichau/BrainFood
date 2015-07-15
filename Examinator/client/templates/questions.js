@@ -6,6 +6,9 @@ Template.questions.onCreated(function () {
 });
 
 
+/**
+ * The helpers are used to provide Template scoped handlers`
+ */
 Template.questions.helpers({
     /**
      * returns the questions

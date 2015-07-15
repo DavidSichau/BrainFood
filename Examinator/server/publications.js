@@ -8,6 +8,7 @@ Meteor.publish('questions', function () {
  * publish alls Answers for the current user
  */
 Meteor.publish('ownAnswers', function() {
+    //this.userId is the userId of the current user in publications
     return Answers.find({userId: this.userId})
 });
 

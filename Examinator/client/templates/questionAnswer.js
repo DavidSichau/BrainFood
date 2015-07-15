@@ -1,4 +1,6 @@
-
+/**
+ * The events object is used to define events fired by the template
+ */
 Template.questionAnswer.events({
     /**
      * Submits the form
@@ -31,7 +33,5 @@ Template.questionAnswer.events({
         e.preventDefault();
         Session.set('activeQuestion', null);
     }
-
-
 
 });

@@ -6,7 +6,7 @@ Questions = new Mongo.Collection("questions");
 
 
 /**
- * This is used by autofrom and collection2 package to automaticaly generate the form
+ * This is used by autoform and collection2 package to automaticaly generate the form
  */
 Questions.attachSchema(new SimpleSchema({
     question: {
@@ -26,6 +26,9 @@ Questions.attachSchema(new SimpleSchema({
     }
 }));
 
+/**
+ * This is used for security. One can define which mongo operations are allowed
+ */
 Questions.allow({
     /**
      * Allow only registered users to add a new question
